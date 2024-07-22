@@ -1,0 +1,94 @@
+services:
+  db:
+    build: ./db
+    container_name: db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    networks:
+      - mynetwork
+    ports:
+      - "6380:6379"
+
+  backend:
+    build: ./backend
+    container_name: backend
+    command: ["sh", "-c", "python manage.py wait_for_db && python manage.py makemigrations && python manage.py migrate && python manage.py create_ai_opponent && daphne -b 0.0.0.0 -p 8000 pong_game.asgi:application"]
+    volumes:
+      - ./backend:/app
+      - media:/app/media
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASS}@db:5432/${DB_NAME}
+      REDIS_URL: redis://redis:6379/0
+      DJANGO_SETTINGS_MODULE: pong_game.settings
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+      HOSTNAME_VAR: ${HOSTNAME_VAR}
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    networks:
+      - mynetwork
+
+  # blockchain:
+  #   build: ./blockchain
+  #   container_name: blockchain
+  #   ports:
+  #   - "3000:3000"
+  #   networks:
+  #   - mynetwork
+  #   env_file:
+  #   - .env
+  #   environment:
+  #     SEPOLIA_URL: ${SEPOLIA_URL}
+  #     PRIVATE_KEY: ${PRIVATE_KEY}
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+      args:
+        HOSTNAME_VAR: ${HOSTNAME_VAR}
+    container_name: nginx
+    ports:
+      - "8080:8080"
+      - "4443:4443"
+    volumes:
+      - media:/usr/share/nginx/html/media
+      - ./nginx/certs:/etc/ssl/certs
+      - ./nginx/private:/etc/ssl/private
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - mynetwork
+    environment:
+      HOSTNAME_VAR: ${HOSTNAME_VAR}
+
+volumes:
+  postgres_data:
+  media:
+
+networks:
+  mynetwork:
+    driver: bridge
