@@ -952,3 +952,23 @@ DEBUG 2024-07-17 16:54:17,883 Room Player 1 added to room: R5256. Player number:
 DEBUG 2024-07-17 17:39:22,304 LobbyManager Player disconnected: 1
 DEBUG 2024-07-17 17:39:22,306 Room Player 1 removed from room R5256
 DEBUG 2024-07-17 17:39:22,307 LobbyManager Disconnect handled for player: 1
+DEBUG 2026-05-13 15:55:22,743 LobbyManager Connection attempt...
+DEBUG 2026-05-13 15:55:22,755 LobbyManager Player connected: sab, with websocket: specific.6bc3704f2f4449bc8e5b50644d0aa77f!177cf1deb4414c3696ee97087f81ea98
+DEBUG 2026-05-13 15:55:22,757 LobbyManager check if player is in game: sab.
+DEBUG 2026-05-13 15:55:22,757 LobbyManager Starting game for player: sab, mode: solo
+DEBUG 2026-05-13 15:55:22,757 Room Creating single player room for sab
+DEBUG 2026-05-13 15:55:22,758 Room Room created: ID R9231, type solo
+DEBUG 2026-05-13 15:55:22,758 Room Player sab is in game: True
+DEBUG 2026-05-13 15:55:22,758 Room Player sab added to room: R9231. Player number: 1
+DEBUG 2026-05-13 15:55:22,759 PongConsumer Countdown: 3 for game G4091
+DEBUG 2026-05-13 15:55:23,763 PongConsumer Countdown: 2 for game G4091
+DEBUG 2026-05-13 15:55:24,767 PongConsumer Countdown: 1 for game G4091
+DEBUG 2026-05-13 15:55:25,772 PongConsumer Countdown finished for game G4091
+DEBUG 2026-05-13 15:55:25,772 PongConsumer Game G4091 started with players: sab
+DEBUG 2026-05-13 15:55:25,773 Room solo game started in room R9231
+DEBUG 2026-05-13 15:55:25,773 PongConsumer Game loop started for game G4091
+DEBUG 2026-05-13 15:55:55,764 PongConsumer End Game condition met for game G4091
+DEBUG 2026-05-13 15:55:55,787 PongConsumer Game G4091 ended
+DEBUG 2026-05-13 15:56:00,790 Room Room R9231 deleted
+DEBUG 2026-05-13 16:01:07,834 LobbyManager Player disconnected: sab
+DEBUG 2026-05-13 16:01:07,837 LobbyManager Disconnect handled for player: sab

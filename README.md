@@ -2,17 +2,17 @@
 
 Un jeu de Pong multijoueur en temps réel avec système d'authentification, chat en direct, tournois et intégration blockchain.
 
-![Screenshot 1](docs/images/Capture%20d'écran%202024-08-19%20à%2018.53.38.jpg)
+![Screenshot 1](docs/images/screenshot-1.jpg)
 
 ## Apercu du projet
 
-![Screenshot 2](docs/images/Capture%20d'écran%202024-08-19%20à%2018.54.12.jpg)
-![Screenshot 3](docs/images/Capture%20d'écran%202024-08-19%20à%2018.55.32.jpg)
+![Screenshot 2](docs/images/screenshot-2.jpg)
+![Screenshot 3](docs/images/screenshot-3.jpg)
 
 ### Fonctionnalites principales
 
-![Screenshot 4](docs/images/Capture%20d'écran%202024-08-19%20à%2018.55.41.jpg)
-![Screenshot 5](docs/images/Capture%20d'écran%202024-08-19%20à%2018.55.48.jpg)
+![Screenshot 4](docs/images/screenshot-4.jpg)
+![Screenshot 5](docs/images/screenshot-5.jpg)
 
 ## Architecture
 
