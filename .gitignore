@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+/static
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# SSL Certificates (development)
+*.crt
+*.key
+*.pem
+
+# Backup files
+*.bak
+*.backup
+
+# Database
+*.sql
+*.db
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
